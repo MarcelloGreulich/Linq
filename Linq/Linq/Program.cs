@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Linq
 {
@@ -9,15 +10,19 @@ namespace Linq
 
         static void Main(string[] args)
         {
-            int[] list = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            var arr1 = new[] { 3, 9, 2, 8, 6, 5 };
 
-            for (int i = 0; i < list.Length; i++)
-            {
-                if (list[i] % 2 == 1)
-                {
-                    Console.WriteLine(list[i]);
-                }
-            }
+            Console.Write("\nLINQ : Find the number and its square of an array which is more than 20 : ");
+            Console.Write("\n------------------------------------------------------------------------\n");
+
+            var sqNo = from int Number in arr1
+                       let SqrNo = Number * Number
+                       where SqrNo > 20
+                       select new { Number, SqrNo };
+
+            foreach (var a in sqNo)
+                Console.WriteLine(a);
+
             Console.ReadKey();
 
 
