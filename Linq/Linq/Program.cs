@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Lifetime;
 
 namespace Linq
 {
@@ -12,22 +13,20 @@ namespace Linq
         static void Main(string[] args)
         {
 
-            string[] arr1 = { "aaa.frx", "bbb.TXT", "xyz.dbf", "abc.pdf", "aaaa.PDF", "xyz.frt", "abc.xml", "ccc.txt", "zzz.txt" };
+            List<string> listOfString = new List<string>(); 
+            listOfString.Add("m"); 
+            listOfString.Add("n"); 
+            listOfString.Add("o"); 
+            listOfString.Add("p"); 
+            listOfString.Add("q");
 
-            var lis = from a in arr1
-                      group a by a.Split('.')[1] into y
-                      select y;
+            listOfString.Remove(listOfString.FirstOrDefault(i=> i=="o"));
 
-            string extension;
-            int count;
-            foreach (var a in lis)
+            foreach (var item in listOfString)
             {
-                extension = a.Key;
-                count = a.Count();
-
-                Console.WriteLine($"{count} File(s) with {extension} Extension");
+                Console.WriteLine(item);
             }
-            
+
 
 
             Console.ReadKey();
