@@ -10,18 +10,14 @@ namespace Linq
 
         static void Main(string[] args)
         {
-            var arr1 = new[] { 3, 9, 2, 8, 6, 5 };
+            int[] arr1 = new int[] { 5, 9, 1, 2, 3, 7, 5, 6, 7, 3, 7, 6, 8, 5, 4, 9, 6, 2 };
 
-            Console.Write("\nLINQ : Find the number and its square of an array which is more than 20 : ");
-            Console.Write("\n------------------------------------------------------------------------\n");
-
-            var sqNo = from int Number in arr1
-                       let SqrNo = Number * Number
-                       where SqrNo > 20
-                       select new { Number, SqrNo };
-
-            foreach (var a in sqNo)
-                Console.WriteLine(a);
+            var num = from int Number in arr1
+                      group Number by Number into n
+                      select n;
+            foreach (var a in num) { 
+                Console.WriteLine($"Number {a.Key} ist {a.Count()} vorhanden");
+            }
 
             Console.ReadKey();
 
