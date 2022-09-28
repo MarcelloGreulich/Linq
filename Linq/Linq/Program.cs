@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 
 namespace Linq
 {
@@ -10,13 +12,31 @@ namespace Linq
 
         static void Main(string[] args)
         {
-            int[] nums = new int[] { 5, 1, 9, 2, 3, 7, 4, 5, 6, 8, 7, 6, 3, 4, 5, 2 };;
+            Console.WriteLine("Wie viele elemente wollen Sie hinzufügen?");
+            int count = Convert.ToInt32(Console.ReadLine());
+            int zahl;
+            List<int> list = new List<int>();
 
-            var num = from n in nums
-                      group n by n into p
-                      select p;
-            foreach (var nu in num) { 
-                Console.WriteLine($" {nu.Key}  {nu.Sum()} {nu.Count()} ");
+            for (int i = 0; i < count; i++)
+            {
+                Console.WriteLine("Jo geb Zahl");
+                zahl = Convert.ToInt32(Console.ReadLine());
+                list.Add(zahl);
+            }
+
+            Console.Clear();
+
+            Console.WriteLine("Jogeb Meer Zal");
+            int zahl2=Convert.ToInt32(Console.ReadLine());
+
+            Console.ReadLine();
+
+            list.Sort();
+            list.Reverse();
+
+            foreach (var n in list.Take(zahl2))
+            {
+                Console.WriteLine(n);
             }
 
             Console.ReadKey();
