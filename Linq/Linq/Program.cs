@@ -17,12 +17,14 @@ namespace Linq
             var set1 = new string[] { "X", "Y", "Z" };
             var set2 = new int[] { 1, 2, 3 };
 
-            for(int i = 0; i < set1.Length; i++)
+            for (int t = 0; t < set1.Length; t++)
             {
-                string s = (set1[i] + Convert.ToString(set2[i])); 
-                Console.WriteLine(s);
+                for(int i = 0; i < set2.Length; i++)
+                {
+                    string s = (set1[t] + Convert.ToString(set2[i])); 
+                    Console.WriteLine(s);
+                }
             }
-
 
 
             Console.ReadKey();
