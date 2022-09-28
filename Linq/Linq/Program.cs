@@ -10,13 +10,13 @@ namespace Linq
 
         static void Main(string[] args)
         {
-            int[] arr1 = new int[] { 5, 9, 1, 2, 3, 7, 5, 6, 7, 3, 7, 6, 8, 5, 4, 9, 6, 2 };
+            string[] cities = { "ROME", "LONDON", "NAIROBI", "CALIFORNIA", "ZURICH", "NEW DELHI", "AMSTERDAM", "ABU DHABI", "PARIS" };
 
-            var num = from int Number in arr1
-                      group Number by Number into n
-                      select n;
-            foreach (var a in num) { 
-                Console.WriteLine($"Number {a.Key} ist {a.Count()} vorhanden");
+            var cit = from c in cities
+                      where c.StartsWith("C") && c.EndsWith("A")
+                      select c;
+            foreach (var nu in cit) { 
+                Console.WriteLine(nu);
             }
 
             Console.ReadKey();
