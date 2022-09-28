@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.AccessControl;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 
 namespace Linq
 {
@@ -12,34 +12,23 @@ namespace Linq
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Wie viele elemente wollen Sie hinzufügen?");
-            int count = Convert.ToInt32(Console.ReadLine());
-            int zahl;
-            List<int> list = new List<int>();
-
-            for (int i = 0; i < count; i++)
-            {
-                Console.WriteLine("Jo geb Zahl");
-                zahl = Convert.ToInt32(Console.ReadLine());
-                list.Add(zahl);
-            }
+            Console.WriteLine("Gebbe einen satz mit UPPER CASE wörtern ein");
+            string count = Console.ReadLine();
 
             Console.Clear();
 
-            Console.WriteLine("Jogeb Meer Zal");
-            int zahl2=Convert.ToInt32(Console.ReadLine());
-
-            Console.ReadLine();
-
-            list.Sort();
-            list.Reverse();
-
-            foreach (var n in list.Take(zahl2))
-            {
-                Console.WriteLine(n);
-            }
+            //[Das, ist , ]
+            count
+                .Split(' ')
+                //Check if All Letters are UPPER
+                .Where(e=>e.All(char.IsUpper))
+                //Convert to List 
+                .ToList()
+                //Print 
+                .ForEach(f=> Console.WriteLine(f));
 
             Console.ReadKey();
+
 
 
         }
