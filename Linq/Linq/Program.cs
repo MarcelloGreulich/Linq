@@ -12,19 +12,15 @@ namespace Linq
 
         static void Main(string[] args)
         {
+            //var combine = apples.Zip(carrots, (a, c) => new { Apple = a, Carrot = c});
+            //apples.Select((a,i)=> new { Apple = a, Carrot = carrots[i] });
+            var set1 = new string[] { "X", "Y", "Z" };
+            var set2 = new int[] { 1, 2, 3 };
 
-            List<string> listOfString = new List<string>(); 
-            listOfString.Add("m"); 
-            listOfString.Add("n"); 
-            listOfString.Add("o"); 
-            listOfString.Add("p"); 
-            listOfString.Add("q");
-
-            listOfString.Remove(listOfString.FirstOrDefault(i=> i=="o"));
-
-            foreach (var item in listOfString)
+            for(int i = 0; i < set1.Length; i++)
             {
-                Console.WriteLine(item);
+                string s = (set1[i] + Convert.ToString(set2[i])); 
+                Console.WriteLine(s);
             }
 
 
